@@ -4,6 +4,7 @@ import java.awt.Button;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.DisplayMode;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
@@ -22,7 +23,7 @@ public class GUI extends JFrame{
 	private Container myPane;
 	private JLabel display;
 	private JPanel keypad;
-	private JButton[] button; 
+	private JButton[] button = new JButton[16]; 
 	private Color backColour;
 	private Graphics g;
 	
@@ -33,17 +34,16 @@ public class GUI extends JFrame{
 		GridBagLayout layout = new GridBagLayout();
 		GridBagConstraints layoutConstraints = new GridBagConstraints();
 		this.canvas = new JPanel();
-		this.display = new JLabel();
+		this.display = new JLabel("thing");
 		this.keypad = new JPanel();
-		//g.setColor(Color.red);
-		//this.g.drawRect(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
 		canvas.setLayout(layout);
 		canvas.add(display);
 		canvas.add(keypad);
-		//for (int i = 0; i < 16; i++) {
-			//this.button = new JButton[i];
-			//keypad.add(button[i]);
-		//}
+		keypad.setLayout(layout);
+		for (int i = 0; i < 16; i++) {
+			this.button[i] = new JButton(Integer.toString(i));
+			keypad.add(button[i]);
+		}
 		
 		setVisible(true);
 		pack();
@@ -59,16 +59,25 @@ public class GUI extends JFrame{
 	       myPane.setLayout(new GridBagLayout());
 	       
 	       frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-	       frame.setSize(400, 400);
+	       frame.setSize(1000, 600);
 	       frame.setBackground(Color.black);
 	       frame.canvas.setSize(300,300);
 	       frame.canvas.setBackground(Color.red);
+	       frame.canvas.setOpaque(true);
+	       
 	       
 	       frame.display.setVisible(true);
-	       //JButton button = new JButton("Press");
-	       myPane.add(frame.display);
-	       //frame.getContentPane().add(button); // Adds Button to content pane of frame
+	      
+	       myPane.add(frame.display); // Adds Button to content pane of frame
 	       frame.setVisible(true);
+	       myPane.setVisible(true);
+	      
+	       frame.keypad.setVisible(true);
+	       for (int i = 0; i < 16; i++) {
+	    	   myPane.add(frame.button[i]);
+	    	   frame.button[i].setVisible(true);
+			}
+	       
 
 
    }
