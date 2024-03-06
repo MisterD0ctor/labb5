@@ -19,7 +19,6 @@ import javax.swing.WindowConstants;
 
 public class GUI extends JFrame {
 	private JPanel canvas;
-	private Container myPane;
 	private JLabel display;
 	private JPanel keypad;
 	private JButton[] button = new JButton[16];
@@ -29,35 +28,37 @@ public class GUI extends JFrame {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		GridBagLayout layout = new GridBagLayout();
 		GridBagConstraints layoutConstraints = new GridBagConstraints();
-		
 
 		this.canvas = new JPanel();
 		this.canvas.setLayout(layout);
-		layoutConstraints.fill = GridBagConstraints.HORIZONTAL;
-		this.display = new JLabel("thing", SwingConstants.RIGHT);
+		this.display = new JLabel("0", SwingConstants.RIGHT);
 		this.keypad = new JPanel();
+		
+		display.setOpaque(true);
+		display.setPreferredSize(new Dimension(140, 30));
+		keypad.setPreferredSize(new Dimension(200, 260));
 		display.setBorder(BorderFactory.createLineBorder(Color.blue));
-		//display.setOpaque(true);
-		display.setPreferredSize(new Dimension(200, 50));
-		keypad.setPreferredSize(new Dimension(200, 140));
-		keypad.setBounds(200, 140, 200, 140);
+		keypad.setBounds(0, 60, 200, 140);
+		//layoutConstraints.anchor = layoutConstraints.NORTH;
 		layoutConstraints.gridheight = 2;
 		layoutConstraints.gridwidth = 1;
+		layoutConstraints.gridx = 0;
+		layoutConstraints.gridy = 0;
 		canvas.add(display, layoutConstraints);
+		layoutConstraints.anchor = layoutConstraints.SOUTH;
 		layoutConstraints.gridx = 0;
 		layoutConstraints.gridy = 1;
-		layoutConstraints.gridwidth = GridBagConstraints.REMAINDER;
-		layoutConstraints.fill = GridBagConstraints.BOTH;
+		layoutConstraints.gridwidth = 2;
+		layoutConstraints.fill = GridBagConstraints.NORTH;
 		layoutConstraints.weighty = 0.9;
 		canvas.add(keypad, layoutConstraints);
-		canvas.setSize(140, 140);
-		//display.setAlignmentY(TOP_ALIGNMENT);
-		//display.setAlignmentX(CENTER_ALIGNMENT);
-		this.setSize(400, 400);
+		canvas.setSize(200, 300);
+		this.setSize(200, 300);
 		// canvas.setLayout(layout);
-		GridLayout gridLayout = new GridLayout(4, 4, 3, 3);	
+		GridLayout gridLayout = new GridLayout(4, 4, 3, 3);
 		
 		
+		this.setContentPane(canvas); 
 		keypad.setLayout(gridLayout);
 		//keypad.setAlignmentY(BOTTOM_ALIGNMENT);
 		layout.columnWidths = new int[] {50,50};
@@ -146,14 +147,12 @@ public class GUI extends JFrame {
 
 		frame.canvas.setOpaque(true);
 
-		frame.display.setVisible(true);
+		
 
 		myPane.add(frame.display); // Adds Button to content pane of frame
 		frame.setVisible(true);
-		myPane.setVisible(true);
+		
 
-		myPane.add(frame.keypad);
-		frame.keypad.setVisible(true);
 
 	}
 }
