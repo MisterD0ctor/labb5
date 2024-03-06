@@ -133,26 +133,4 @@ public class GUI extends JFrame {
 		setVisible(true);
 		pack();
 	}
-
-	// myPane.setLayout(new GridBagLayout());
-
-	public static void main(String args[]) {
-
-		GUI frame = new GUI();
-		
-		Container myPane = frame.getContentPane();
-		//myPane.setLayout(new GridBagLayout());
-
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-
-		frame.canvas.setOpaque(true);
-
-		
-
-		myPane.add(frame.display); // Adds Button to content pane of frame
-		frame.setVisible(true);
-		
-
-
-	}
 }
