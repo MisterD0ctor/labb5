@@ -48,15 +48,15 @@ public class GUI extends JFrame {
 		layoutConstraints.gridx = 0;
 		layoutConstraints.gridy = 0;
 		canvas.add(display, layoutConstraints);
-		layoutConstraints.anchor = layoutConstraints.SOUTH;
+		//layoutConstraints.anchor = layoutConstraints.SOUTH;
 		layoutConstraints.gridx = 0;
 		layoutConstraints.gridy = 1;
 		layoutConstraints.gridwidth = 2;
-		layoutConstraints.fill = GridBagConstraints.NORTH;
-		layoutConstraints.weighty = 0.9;
+		layoutConstraints.fill = GridBagConstraints.BOTH;
+		layoutConstraints.weighty = 0.3;
 		canvas.add(keypad, layoutConstraints);
-		canvas.setSize(200, 300);
-		this.setSize(200, 300);
+		canvas.setSize(220, 300);
+		this.setSize(220, 300);
 		// canvas.setLayout(layout);
 		GridLayout gridLayout = new GridLayout(4, 4, 3, 3);
 		
@@ -81,7 +81,6 @@ public class GUI extends JFrame {
 			for (k = 1; k < 4; k++) {
 				if (i != -1) {
 					this.button[index] = new DigitButton(Integer.toString(k + i * 3), situation);
-					//gridLayout.addLayoutComponent("thing", button[index]);
 					keypad.add(button[index]);
 				} else {
 //					this.button[index] = new DigitButton(Integer.toString(0), situation);
