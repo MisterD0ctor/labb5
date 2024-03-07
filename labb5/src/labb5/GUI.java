@@ -21,10 +21,13 @@ public class GUI extends JFrame {
 	private JPanel canvas;
 	private JLabel display;
 	private JPanel keypad;
-	private JButton[] button = new JButton[16];
+	private DigitButton[] button = new DigitButton[100];
+	private Situation situation;	
 
 	public GUI() {
 
+		
+		
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		GridBagLayout layout = new GridBagLayout();
 		GridBagConstraints layoutConstraints = new GridBagConstraints();
@@ -40,8 +43,8 @@ public class GUI extends JFrame {
 		display.setBorder(BorderFactory.createLineBorder(Color.blue));
 		keypad.setBounds(0, 60, 200, 140);
 		//layoutConstraints.anchor = layoutConstraints.NORTH;
-		layoutConstraints.gridheight = 2;
-		layoutConstraints.gridwidth = 1;
+		//layoutConstraints.gridheight = 2;
+		//layoutConstraints.gridwidth = 1;
 		layoutConstraints.gridx = 0;
 		layoutConstraints.gridy = 0;
 		canvas.add(display, layoutConstraints);
@@ -57,13 +60,15 @@ public class GUI extends JFrame {
 		// canvas.setLayout(layout);
 		GridLayout gridLayout = new GridLayout(4, 4, 3, 3);
 		
-		
+		this.situation = new Situation(display);
 		this.setContentPane(canvas); 
 		keypad.setLayout(gridLayout);
 		//keypad.setAlignmentY(BOTTOM_ALIGNMENT);
-		layout.columnWidths = new int[] {50,50};
-		layout.rowHeights = new int[] {50, 50};
 
+		
+		
+		
+		
 		// Skappande av alla knappar
 		int index = 0;
 
@@ -75,21 +80,21 @@ public class GUI extends JFrame {
 			// k = index från vänster till höger
 			for (k = 1; k < 4; k++) {
 				if (i != -1) {
-					this.button[index] = new JButton(Integer.toString(k + i * 3));
+					this.button[index] = new DigitButton(Integer.toString(k + i * 3), situation);
 					//gridLayout.addLayoutComponent("thing", button[index]);
 					keypad.add(button[index]);
 				} else {
-					this.button[index] = new JButton(Integer.toString(0));
-					keypad.add(button[index]);
+//					this.button[index] = new DigitButton(Integer.toString(0), situation);
+//					keypad.add(button[index]);
+//					index++;
+//					this.button[index] = new JButton("=")
+//					keypad.add(button[index]);
+//					index++;
+//					this.button[index] = new JButton("C");
+//					keypad.add(button[index]);
 					index++;
-					this.button[index] = new JButton("=");
-					keypad.add(button[index]);
-					index++;
-					this.button[index] = new JButton("C");
-					keypad.add(button[index]);
-					index++;
-					this.button[index] = new JButton("+");
-					keypad.add(button[index]);
+					BinOpButton binOpButton = new BinOpButton("+", situation);
+					keypad.add(binOpButton);
 					return;
 				}
 
@@ -99,33 +104,33 @@ public class GUI extends JFrame {
 
 			// after three buttons are declared in each collum the forth, which is always
 			// special, is declared here.
-			switch (i) {
-				case 2: {
-					// devition
-					this.button[index] = new JButton("/");
-					keypad.add(button[index]);
-	
-					System.out.print(i);
-					break;
-				}
-				case 1: {
-					// multiplication
-					this.button[index] = new JButton("*");
-					keypad.add(button[index]);
-	
-					System.out.print(i);
-					break;
-				}
-				case 0: {
-					// minus
-					this.button[index] = new JButton("-");
-					keypad.add(button[index]);
-	
-					// System.out.print(i);
-					break;
-				}
-
-			}
+//			switch (i) {
+//				case 2: {
+//					// devition
+//					this.button[index] = new JButton("/");
+//					keypad.add(button[index]);
+//	
+//					System.out.print(i);
+//					break;
+//				}
+//				case 1: {
+//					// multiplication
+//					this.button[index] = new JButton("*");
+//					keypad.add(button[index]);
+//	
+//					System.out.print(i);
+//					break;
+//				}
+//				case 0: {
+//					// minus
+//					this.button[index] = new JButton("-");
+//					keypad.add(button[index]);
+//	
+//					// System.out.print(i);
+//					break;
+//				}
+//
+//			}
 			index++;
 
 		}
