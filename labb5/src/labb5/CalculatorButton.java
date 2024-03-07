@@ -8,15 +8,25 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 
+/**
+ * Abstract calculator button
+ * @author Kasper Axelsson
+ * @author Zeb Muhlbach
+ */
 abstract class CalculatorButton extends JButton {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final int SIZE = 60;
+	private static final int SIZE = 50;
 	private Situation situation;
 	
+	/**
+	 * 
+	 * @param text an instanece of String
+	 * @param situation an instance of Situation
+	 */
 	public CalculatorButton(String text, Situation situation) {
 		super(text);
 		this.setPreferredSize(new Dimension(SIZE, SIZE));
@@ -26,24 +36,37 @@ abstract class CalculatorButton extends JButton {
 		this.situation = situation;
 	}
 	
+	/**
+	 * 
+	 * @return An instanece of Situation
+	 */
 	protected Situation getSituation() {
 		return situation;
 	}
 	
+	/**
+	 * Invoked when the button is pressed
+	 */
 	public abstract void transition();
-}
+	
+	
+	private class ButtonListener implements ActionListener {
 
-class ButtonListener implements ActionListener {
-
-	private CalculatorButton button;
-	
-	public ButtonListener(CalculatorButton button) {
-		this.button = button;
+		private CalculatorButton button;
+		
+		/**
+		 * 
+		 * @param button An instance of CalculatorButton
+		 */
+		public ButtonListener(CalculatorButton button) {
+			this.button = button;
+		}
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.out.println(e);
+			button.transition();
+		}
+		
 	}
-	
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		button.transition();
-	}
-	
 }
