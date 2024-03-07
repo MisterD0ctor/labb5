@@ -2,6 +2,11 @@ package labb5;
 
 class BinOpButton extends CalculatorButton {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public BinOpButton(String text, Situation situation) {
 		super(text, situation);
 		// TODO Auto-generated constructor stub
@@ -12,5 +17,7 @@ class BinOpButton extends CalculatorButton {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 
 }
