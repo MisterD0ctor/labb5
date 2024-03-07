@@ -19,7 +19,7 @@ abstract class CalculatorButton extends JButton {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final int SIZE = 50;
+	public static final int SIZE = 50;
 	private Situation situation;
 	
 	/**
@@ -30,7 +30,7 @@ abstract class CalculatorButton extends JButton {
 	public CalculatorButton(String text, Situation situation) {
 		super(text);
 		this.setPreferredSize(new Dimension(SIZE, SIZE));
-		this.setBackground(Color.GRAY);
+		//this.setBackground(Color.GRAY);
 		this.setFont(new Font("Arial", Font.PLAIN, 14));
 		this.addActionListener(new ButtonListener(this));
 		this.situation = situation;
@@ -49,6 +49,14 @@ abstract class CalculatorButton extends JButton {
 	 */
 	public abstract void transition();
 	
+	public void setColor(Color color) {
+		this.setColor(color);;
+	}
+	
+	@Override
+	public String toString() {
+		return getText();
+	}
 	
 	private class ButtonListener implements ActionListener {
 

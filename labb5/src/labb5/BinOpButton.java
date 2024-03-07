@@ -25,8 +25,12 @@ class BinOpButton extends CalculatorButton {
 	public void transition() {
 		switch (getSituation().state) {
 		case Input1:
+			getSituation().binaryOperator = this;
+			getSituation().state = State.OpReady;
 			break;
 		case OpReady:
+			getSituation().binaryOperator = this;
+			getSituation().state = State.OpReady;
 			break;
 		case Input2:
 			break;

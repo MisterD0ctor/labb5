@@ -27,9 +27,9 @@ class DigitButton extends CalculatorButton {
 		switch (getSituation().state) {
 		case Input1:
 			if (getSituation().display.getText() == "0") {
-				getSituation().display.setText(getText());
+				getSituation().display.setText(this.getText());
 			} else {
-				getSituation().display.setText(getSituation().display.getText() + getText());				
+				getSituation().display.setText(getSituation().display.getText() + this.getText());				
 			}
 			break;
 		case OpReady:

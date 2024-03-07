@@ -21,7 +21,7 @@ public class GUI extends JFrame {
 	private JPanel canvas;
 	private JLabel display;
 	private JPanel keypad;
-	private DigitButton[] button = new DigitButton[100];
+	private CalculatorButton[] button = new CalculatorButton[16];
 	private Situation situation;	
 
 	public GUI() {
@@ -38,8 +38,8 @@ public class GUI extends JFrame {
 		this.keypad = new JPanel();
 		
 		display.setOpaque(true);
-		display.setPreferredSize(new Dimension(140, 30));
-		keypad.setPreferredSize(new Dimension(200, 260));
+		display.setPreferredSize(new Dimension(200, 30));
+		//keypad.setPreferredSize(new Dimension(260, 260));
 		display.setBorder(BorderFactory.createLineBorder(Color.blue));
 		keypad.setBounds(0, 60, 200, 140);
 		//layoutConstraints.anchor = layoutConstraints.NORTH;
@@ -55,86 +55,36 @@ public class GUI extends JFrame {
 		layoutConstraints.fill = GridBagConstraints.NORTH;
 		layoutConstraints.weighty = 0.9;
 		canvas.add(keypad, layoutConstraints);
-		canvas.setSize(200, 300);
-		this.setSize(200, 300);
+		this.setSize(210, 330);
 		// canvas.setLayout(layout);
-		GridLayout gridLayout = new GridLayout(4, 4, 3, 3);
+		GridLayout gridLayout = new GridLayout(4, 4, 0, 0);
 		
 		this.situation = new Situation(display);
 		this.setContentPane(canvas); 
 		keypad.setLayout(gridLayout);
 		//keypad.setAlignmentY(BOTTOM_ALIGNMENT);
 
-		
-		
-		
-		
 		// Skappande av alla knappar
-		int index = 0;
 
-		// i = index från botten uppåt
-		for (int i = 2; i > -2; i--) {
-
-			// Initieras utanför Loopen för att den ska användas i special knapparna.
-			int k = 1;
-			// k = index från vänster till höger
-			for (k = 1; k < 4; k++) {
-				if (i != -1) {
-					this.button[index] = new DigitButton(Integer.toString(k + i * 3), situation);
-					//gridLayout.addLayoutComponent("thing", button[index]);
-					keypad.add(button[index]);
-				} else {
-//					this.button[index] = new DigitButton(Integer.toString(0), situation);
-//					keypad.add(button[index]);
-//					index++;
-//					this.button[index] = new JButton("=")
-//					keypad.add(button[index]);
-//					index++;
-//					this.button[index] = new JButton("C");
-//					keypad.add(button[index]);
-					index++;
-					BinOpButton binOpButton = new BinOpButton("+", situation);
-					keypad.add(binOpButton);
-					return;
-				}
-
-				index++;
-
-			}
-
-			// after three buttons are declared in each collum the forth, which is always
-			// special, is declared here.
-//			switch (i) {
-//				case 2: {
-//					// devition
-//					this.button[index] = new JButton("/");
-//					keypad.add(button[index]);
-//	
-//					System.out.print(i);
-//					break;
-//				}
-//				case 1: {
-//					// multiplication
-//					this.button[index] = new JButton("*");
-//					keypad.add(button[index]);
-//	
-//					System.out.print(i);
-//					break;
-//				}
-//				case 0: {
-//					// minus
-//					this.button[index] = new JButton("-");
-//					keypad.add(button[index]);
-//	
-//					// System.out.print(i);
-//					break;
-//				}
-//
-//			}
-			index++;
-
+		for (int i = 9; i >= 7; i--) {
+			keypad.add(new DigitButton(Integer.toString(i), situation));
 		}
+		keypad.add(new BinOpButton("/", situation));		
+		for (int i = 6; i >= 4; i--) {
+			keypad.add(new DigitButton(Integer.toString(i), situation));
+		}
+		keypad.add(new BinOpButton("*", situation));		
+		for (int i = 3; i >= 1; i--) {
+			keypad.add(new DigitButton(Integer.toString(i), situation));
+		}
+		keypad.add(new BinOpButton("-", situation));
+		keypad.add(new DigitButton("0", situation));
+		keypad.add(new EqualsButton("=", situation));
+		keypad.add(new CancelButton("C", situation));
+		keypad.add(new BinOpButton("+", situation));
 
+		
+		
 		setVisible(true);
 		pack();
 	}
