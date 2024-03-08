@@ -43,9 +43,10 @@ class EqualsButton extends CalculatorButton {
 				break;
 			case "/":
 				if (getDisplayInt() == 0) {
-					
+					System.out.println("Cannot divide by zero!");
+				} else {
+					getSituation().display.setText(Integer.toString(getSituation().leftOperand / getDisplayInt()));					
 				}
-				getSituation().display.setText(Integer.toString(getSituation().leftOperand / getDisplayInt()));
 				break;
 			}
 			break;

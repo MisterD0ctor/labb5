@@ -79,7 +79,6 @@ abstract class CalculatorButton extends JButton {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			System.out.println(e);
 			button.transition();
 		}
 		
