@@ -4,6 +4,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -32,12 +33,13 @@ public class GUI extends JFrame {
 		GridBagConstraints layoutConstraints = new GridBagConstraints();
 
 		this.canvas = new JPanel();
-		this.canvas.setLayout(layout);
 		this.display = new JLabel("0", SwingConstants.RIGHT);
 		this.keypad = new JPanel();
+		this.canvas.setLayout(layout);
 		display.setOpaque(true);
 		display.setPreferredSize(new Dimension(200, 30));
 		display.setBorder(BorderFactory.createLineBorder(Color.gray, 2, true));
+		display.setFont(new Font("Consolas", Font.PLAIN, 27));
 		
 		//Sets the size of the keypad to four time each button size
 		keypad.setPreferredSize(new Dimension(CalculatorButton.SIZE * 4, CalculatorButton.SIZE * 4));
