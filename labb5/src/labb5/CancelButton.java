@@ -7,9 +7,6 @@ package labb5;
  */
 class CancelButton extends CalculatorButton {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
