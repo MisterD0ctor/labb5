@@ -1,15 +1,12 @@
 package labb5;
 
-import java.awt.Canvas;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GraphicsEnvironment;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.io.Console;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -18,17 +15,23 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
 
+/**
+ * Calculator GUI
+ * @author Kasper Axelsson
+ * @author Zeb Muhlbach
+ */
 public class GUI extends JFrame {
+
+	private static final long serialVersionUID = 1L;
 	private JPanel canvas;
 	private JLabel display;
 	private JPanel keypad;
-	private CalculatorButton[] button = new CalculatorButton[9];
 	private Situation situation;	
 
+	/**
+	 * 
+	 */
 	public GUI() {
-
-		
-		
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		GridBagLayout layout = new GridBagLayout();
 		GridBagConstraints layoutConstraints = new GridBagConstraints();
@@ -37,6 +40,7 @@ public class GUI extends JFrame {
 		this.display = new JLabel("0", SwingConstants.RIGHT);
 		this.keypad = new JPanel();
 		this.canvas.setLayout(layout);
+		display.setVerticalAlignment(JLabel.CENTER);
 		display.setOpaque(true);
 		display.setPreferredSize(new Dimension(200, 30));
 		display.setBorder(BorderFactory.createLineBorder(Color.gray, 2, true));
@@ -85,12 +89,10 @@ public class GUI extends JFrame {
 		//this.setLocation(500, 400);
 
 		// Skappande av alla knappar
-
-
+		
 		//Digits 7 through 9:
 		for (int i = 9; i >= 7; i--) {
 			keypad.add(new DigitButton(Integer.toString(i), situation));
-			
 		}
 		keypad.add(new BinOpButton("/", situation));		
 		//Digits 4 through 6:

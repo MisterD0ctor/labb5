@@ -45,7 +45,4 @@ class BinOpButton extends CalculatorButton {
 			break;
 		}
 	}
-
-
-
 }

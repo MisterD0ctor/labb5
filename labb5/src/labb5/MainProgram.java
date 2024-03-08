@@ -1,13 +1,17 @@
 package labb5;
-import java.awt.Container;
 
-import javax.swing.WindowConstants;
-
-import labb5.GUI;
-
+/**
+ * Main program
+ * @author Kasper Axelsson
+ * @author Zeb Muhlbach
+ */
 public class MainProgram {
 
+	/**
+	 * 
+	 * @param arg an instance of String[]
+	 */
 	public static void main (String arg[]) {
-		GUI frame = new GUI();
+		new GUI();
 	}
 }
