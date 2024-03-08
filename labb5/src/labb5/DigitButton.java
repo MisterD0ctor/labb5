@@ -7,9 +7,6 @@ package labb5;
  */
 class DigitButton extends CalculatorButton {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -26,6 +23,7 @@ class DigitButton extends CalculatorButton {
 	public void transition() {
 		switch (getSituation().state) {
 		case Input1:
+		case Input2:
 			if (getSituation().display.getText() == "0") {
 				getSituation().display.setText(this.getText());
 			} else {
@@ -33,8 +31,12 @@ class DigitButton extends CalculatorButton {
 			}
 			break;
 		case OpReady:
-			break;
-		case Input2:
+			getSituation().leftOperand = Integer.parseInt(getSituation().display.getText());
+			if (getSituation().display.getText() == "0") {
+				getSituation().display.setText(this.getText());
+			} else {
+				getSituation().display.setText(getSituation().display.getText() + this.getText());				
+			}
 			break;
 		case HasResult:
 			break;

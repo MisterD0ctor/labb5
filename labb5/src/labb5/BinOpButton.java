@@ -7,9 +7,6 @@ package labb5;
  */
 class BinOpButton extends CalculatorButton {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -33,8 +30,10 @@ class BinOpButton extends CalculatorButton {
 			getSituation().state = State.OpReady;
 			break;
 		case Input2:
+			
 			break;
 		case HasResult:
+			
 			break;
 		}
 	}

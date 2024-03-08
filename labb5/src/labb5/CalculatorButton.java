@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
 /**
@@ -15,11 +16,12 @@ import javax.swing.JButton;
  */
 abstract class CalculatorButton extends JButton {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	/**
+	 * The size of CalculatorButton
+	 */
 	public static final int SIZE = 50;
+	private static final int BORDER_WIDTH = 5;
 	private Situation situation;
 	
 	/**
@@ -30,17 +32,18 @@ abstract class CalculatorButton extends JButton {
 	public CalculatorButton(String text, Situation situation) {
 		super(text);
 		this.setPreferredSize(new Dimension(SIZE, SIZE));
-		//this.setBackground(Color.GRAY);
-		this.setFont(new Font("Arial", Font.PLAIN, 14));
+		this.setBackground(Color.WHITE);
+		this.setColor(Color.GRAY);
+		this.setFont(new Font("Arial", Font.PLAIN, 18));
 		this.addActionListener(new ButtonListener(this));
 		this.situation = situation;
 	}
 	
 	/**
 	 * 
-	 * @return An instanece of Situation
+	 * @return an instanece of Situation
 	 */
-	protected Situation getSituation() {
+	public Situation getSituation() {
 		return situation;
 	}
 	
@@ -49,8 +52,12 @@ abstract class CalculatorButton extends JButton {
 	 */
 	public abstract void transition();
 	
+	/**
+	 * Sets the color of the button
+	 * @param color an instance of Color
+	 */
 	public void setColor(Color color) {
-		this.setColor(color);;
+		this.setBorder(BorderFactory.createLineBorder(color, BORDER_WIDTH));
 	}
 	
 	@Override
