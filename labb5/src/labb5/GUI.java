@@ -23,10 +23,14 @@ import javax.swing.WindowConstants;
 public class GUI extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private static final int DISPLAY_FONT_SIZE = 20;
+	private static final int DISPLAY_BORDER_WIDTH = 3;
+	private static final int HORIZONTAL_BUTTON_COUNT = 4;
+	private static final int VERTICAL_BUTTON_COUNT = 4;
 	private JPanel canvas;
 	private JLabel display;
 	private JPanel keypad;
-	private Situation situation;	
+	private Situation situation;
 
 	/**
 	 * 
@@ -42,19 +46,19 @@ public class GUI extends JFrame {
 		this.canvas.setLayout(layout);
 		display.setVerticalAlignment(JLabel.CENTER);
 		display.setOpaque(true);
-		display.setPreferredSize(new Dimension(200, 30));
-		display.setBorder(BorderFactory.createLineBorder(Color.gray, 2, true));
-		display.setFont(new Font("Consolas", Font.PLAIN, 27));
+		display.setBorder(BorderFactory.createLineBorder(Color.gray, DISPLAY_BORDER_WIDTH));
+		display.setFont(new Font("Arial", Font.PLAIN, DISPLAY_FONT_SIZE));
 		
 		//Sets the size of the keypad to four time each button size
-		keypad.setPreferredSize(new Dimension(CalculatorButton.SIZE * 4, CalculatorButton.SIZE * 4));
+		keypad.setPreferredSize(new Dimension(CalculatorButton.SIZE * HORIZONTAL_BUTTON_COUNT,
+				CalculatorButton.SIZE * VERTICAL_BUTTON_COUNT));
 		
 		//Canvas gridbaglayout that contains two cells containing the display and keypad.
 		
 		//Adapts for given size of window.
 		layoutConstraints.fill = GridBagConstraints.BOTH;
-		layoutConstraints.weighty = 0.3;
-		layoutConstraints.weightx = 0.3;
+		layoutConstraints.weighty = 1;
+		layoutConstraints.weightx = 1;
 		
 		//Grid:
 		
@@ -74,19 +78,15 @@ public class GUI extends JFrame {
 		canvas.add(display, layoutConstraints);
 		layoutConstraints.gridx = 0;
 		layoutConstraints.gridy = 1;
-		layoutConstraints.gridwidth = 2;
 		
 		canvas.add(keypad, layoutConstraints);
-		GridLayout gridLayout = new GridLayout(4, 4, 0, 0);
+		GridLayout gridLayout = new GridLayout(HORIZONTAL_BUTTON_COUNT, VERTICAL_BUTTON_COUNT, 0, 0);
 		keypad.setLayout(gridLayout);
 		
 		this.situation = new Situation(display);
 		this.setContentPane(canvas); 
 		
-		
-		
 		this.setLocation(GraphicsEnvironment.getLocalGraphicsEnvironment().getCenterPoint());
-		//this.setLocation(500, 400);
 
 		// Skappande av alla knappar
 		

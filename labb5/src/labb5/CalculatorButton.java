@@ -21,6 +21,7 @@ abstract class CalculatorButton extends JButton {
 	 * The size of CalculatorButton
 	 */
 	public static final int SIZE = 50;
+	private static final int FONT_SIZE = 20;
 	private static final int BORDER_WIDTH = 5;
 	private Situation situation;
 	
@@ -34,7 +35,7 @@ abstract class CalculatorButton extends JButton {
 		this.setPreferredSize(new Dimension(SIZE, SIZE));
 		this.setBackground(Color.WHITE);
 		this.setColor(Color.GRAY);
-		this.setFont(new Font("Arial", Font.PLAIN, 18));
+		this.setFont(new Font("Arial", Font.PLAIN, FONT_SIZE));
 		this.addActionListener(new ButtonListener(this));
 		this.situation = situation;
 	}
