@@ -1,5 +1,7 @@
 package labb5;
 
+import java.awt.Color;
+
 /**
  * Equals button
  * @author Kasper Axelsson
@@ -27,16 +29,33 @@ class EqualsButton extends CalculatorButton {
 		case OpReady:
 			break;
 		case Input2:
-			switch (getSituation().binaryOperator.getText()) {
-			case "+":
-				getSituation().display.setText(
-						Integer.toString(getSituation().leftOperand + Integer.parseInt(getSituation().display.getText())));
-			}
 			getSituation().state = State.HasResult;
+			getSituation().binaryOperator.setColor(Color.GRAY);
+			switch (getSituation().binaryOperator.toString()) {
+			case "+":
+				getSituation().display.setText(Integer.toString(getSituation().leftOperand + getDisplayInt()));
+				break;
+			case "-":
+				getSituation().display.setText(Integer.toString(getSituation().leftOperand - getDisplayInt()));
+				break;
+			case "*":
+				getSituation().display.setText(Integer.toString(getSituation().leftOperand * getDisplayInt()));
+				break;
+			case "/":
+				if (getDisplayInt() == 0) {
+					
+				}
+				getSituation().display.setText(Integer.toString(getSituation().leftOperand / getDisplayInt()));
+				break;
+			}
 			break;
 		case HasResult:
 			break;
 		}
 	}
 
+	private int getDisplayInt() {
+		return Integer.parseInt(getSituation().display.getText());
+	}
+	
 }

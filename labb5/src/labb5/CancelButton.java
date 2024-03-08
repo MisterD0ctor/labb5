@@ -1,5 +1,7 @@
 package labb5;
 
+import java.awt.Color;
+
 /**
  * Cancel button
  * @author Kasper Axelsson
@@ -22,13 +24,21 @@ class CancelButton extends CalculatorButton {
 	public void transition() {
 		switch (getSituation().state) {
 		case Input1:
-			
+			getSituation().display.setText("0");
 			break;
 		case OpReady:
+			getSituation().state = State.Input1;
+			getSituation().display.setText("0");
+			getSituation().binaryOperator.setColor(Color.GRAY);
 			break;
 		case Input2:
+			getSituation().state = State.Input1;
+			getSituation().display.setText("0");
+			getSituation().binaryOperator.setColor(Color.GRAY);
 			break;
 		case HasResult:
+			getSituation().state = State.Input1;
+			getSituation().display.setText("0");
 			break;
 		}
 	}

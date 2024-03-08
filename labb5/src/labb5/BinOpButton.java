@@ -1,5 +1,7 @@
 package labb5;
 
+import java.awt.Color;
+
 /**
  * Binary operator button
  * @author Kasper Axelsson
@@ -22,18 +24,24 @@ class BinOpButton extends CalculatorButton {
 	public void transition() {
 		switch (getSituation().state) {
 		case Input1:
+			this.setColor(Color.RED);
 			getSituation().binaryOperator = this;
 			getSituation().state = State.OpReady;
 			break;
 		case OpReady:
-			getSituation().binaryOperator = this;
-			getSituation().state = State.OpReady;
+			if (getSituation().binaryOperator != null) {
+				getSituation().binaryOperator.setColor(Color.GRAY);
+				this.setColor(Color.RED);
+				getSituation().binaryOperator = this;
+			}
 			break;
 		case Input2:
-			
+			// gör ingenting
 			break;
 		case HasResult:
-			
+			this.setColor(Color.RED);
+			getSituation().binaryOperator = this;
+			getSituation().state = State.OpReady;
 			break;
 		}
 	}

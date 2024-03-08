@@ -25,20 +25,19 @@ class DigitButton extends CalculatorButton {
 		case Input1:
 		case Input2:
 			if (getSituation().display.getText() == "0") {
-				getSituation().display.setText(this.getText());
+				getSituation().display.setText(this.toString());
 			} else {
-				getSituation().display.setText(getSituation().display.getText() + this.getText());				
+				getSituation().display.setText(getSituation().display.getText() + this.toString());				
 			}
 			break;
 		case OpReady:
+			getSituation().state = State.Input2;
 			getSituation().leftOperand = Integer.parseInt(getSituation().display.getText());
-			if (getSituation().display.getText() == "0") {
-				getSituation().display.setText(this.getText());
-			} else {
-				getSituation().display.setText(getSituation().display.getText() + this.getText());				
-			}
+			getSituation().display.setText(this.toString());
 			break;
 		case HasResult:
+			getSituation().state = State.Input1;
+			getSituation().display.setText(this.toString());
 			break;
 		}
 	}
