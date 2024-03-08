@@ -41,24 +41,26 @@ public class GUI extends JFrame {
 		display.setPreferredSize(new Dimension(200, 30));
 		//keypad.setPreferredSize(new Dimension(260, 260));
 		display.setBorder(BorderFactory.createLineBorder(Color.blue));
-		keypad.setBounds(0, 60, 200, 140);
-		//layoutConstraints.anchor = layoutConstraints.NORTH;
-		//layoutConstraints.gridheight = 2;
-		//layoutConstraints.gridwidth = 1;
+		//keypad.setBounds(0, 60, 200, 140);
 		layoutConstraints.gridx = 0;
 		layoutConstraints.gridy = 0;
 		canvas.add(display, layoutConstraints);
-		layoutConstraints.anchor = layoutConstraints.SOUTH;
+		//layoutConstraints.anchor = layoutConstraints.SOUTH;
 		layoutConstraints.gridx = 0;
 		layoutConstraints.gridy = 1;
 		layoutConstraints.gridwidth = 2;
-		layoutConstraints.fill = GridBagConstraints.NORTH;
-		layoutConstraints.weighty = 0.9;
+		layoutConstraints.fill = GridBagConstraints.BOTH;
+		layoutConstraints.weighty = 0.3;
 		canvas.add(keypad, layoutConstraints);
+
+		canvas.setSize(220, 300);
+		this.setSize(220, 300);
+
 		this.setSize(210, 330);
-		// canvas.setLayout(layout);
+
 		GridLayout gridLayout = new GridLayout(4, 4, 0, 0);
-		
+		Dimension dim = new Dimension(CalculatorButton.SIZE * 4,CalculatorButton.SIZE * 4  );
+		keypad.setSize(dim);		
 		this.situation = new Situation(display);
 		this.setContentPane(canvas); 
 		keypad.setLayout(gridLayout);
@@ -66,8 +68,10 @@ public class GUI extends JFrame {
 
 		// Skappande av alla knappar
 
+
 		for (int i = 9; i >= 7; i--) {
 			keypad.add(new DigitButton(Integer.toString(i), situation));
+			
 		}
 		keypad.add(new BinOpButton("/", situation));		
 		for (int i = 6; i >= 4; i--) {
