@@ -10,7 +10,6 @@ import java.awt.GridLayout;
 import java.io.Console;
 
 import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,7 +20,7 @@ public class GUI extends JFrame {
 	private JPanel canvas;
 	private JLabel display;
 	private JPanel keypad;
-	private CalculatorButton[] button = new CalculatorButton[16];
+	private CalculatorButton[] button = new CalculatorButton[9];
 	private Situation situation;	
 
 	public GUI() {
@@ -36,48 +35,62 @@ public class GUI extends JFrame {
 		this.canvas.setLayout(layout);
 		this.display = new JLabel("0", SwingConstants.RIGHT);
 		this.keypad = new JPanel();
-		
 		display.setOpaque(true);
 		display.setPreferredSize(new Dimension(200, 30));
-		//keypad.setPreferredSize(new Dimension(260, 260));
-		display.setBorder(BorderFactory.createLineBorder(Color.blue));
-		//keypad.setBounds(0, 60, 200, 140);
+		display.setBorder(BorderFactory.createLineBorder(Color.gray, 2, true));
+		
+		//Sets the size of the keypad to four time each button size
+		keypad.setPreferredSize(new Dimension(CalculatorButton.SIZE * 4, CalculatorButton.SIZE * 4));
+		
+		//Canvas gridbaglayout that contains two cells containing the display and keypad.
+		
+		//Adapts for given size of window.
+		layoutConstraints.fill = GridBagConstraints.BOTH;
+		layoutConstraints.weighty = 0.3;
+		layoutConstraints.weightx = 0.3;
+		
+		//Grid:
+		
+		// (Canvas) 
+		// ________
+		//|Display |  
+		//|________|  - Cell (0.0)
+		// ________
+		//| Keypad |  - Cell (0.1)
+		//|[][][][]|
+		//|[][][][]|
+		//|[][][][]|
+		//|[][][][]|
+		//|________|
 		layoutConstraints.gridx = 0;
 		layoutConstraints.gridy = 0;
 		canvas.add(display, layoutConstraints);
-		//layoutConstraints.anchor = layoutConstraints.SOUTH;
 		layoutConstraints.gridx = 0;
 		layoutConstraints.gridy = 1;
 		layoutConstraints.gridwidth = 2;
-		layoutConstraints.fill = GridBagConstraints.BOTH;
-		layoutConstraints.weighty = 0.3;
+		
 		canvas.add(keypad, layoutConstraints);
-
-		canvas.setSize(220, 300);
-		this.setSize(220, 300);
-
-		this.setSize(210, 330);
-
 		GridLayout gridLayout = new GridLayout(4, 4, 0, 0);
-		Dimension dim = new Dimension(CalculatorButton.SIZE * 4,CalculatorButton.SIZE * 4  );
-		keypad.setSize(dim);		
+		keypad.setLayout(gridLayout);
+		
 		this.situation = new Situation(display);
 		this.setContentPane(canvas); 
-		keypad.setLayout(gridLayout);
-		//keypad.setAlignmentY(BOTTOM_ALIGNMENT);
 
 		// Skappande av alla knappar
 
 
+		//Digits 7 through 9:
 		for (int i = 9; i >= 7; i--) {
 			keypad.add(new DigitButton(Integer.toString(i), situation));
 			
 		}
 		keypad.add(new BinOpButton("/", situation));		
+		//Digits 4 through 6:
 		for (int i = 6; i >= 4; i--) {
 			keypad.add(new DigitButton(Integer.toString(i), situation));
 		}
 		keypad.add(new BinOpButton("*", situation));		
+		//Digits 1 through 3:
 		for (int i = 3; i >= 1; i--) {
 			keypad.add(new DigitButton(Integer.toString(i), situation));
 		}
@@ -86,7 +99,6 @@ public class GUI extends JFrame {
 		keypad.add(new EqualsButton("=", situation));
 		keypad.add(new CancelButton("C", situation));
 		keypad.add(new BinOpButton("+", situation));
-
 		
 		
 		setVisible(true);

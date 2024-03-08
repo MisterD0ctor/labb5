@@ -9,11 +9,5 @@ public class MainProgram {
 
 	public static void main (String arg[]) {
 		GUI frame = new GUI();
-		
-		Container myPane = frame.getContentPane();
-		//myPane.setLayout(new GridBagLayout());
-
-		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		frame.setVisible(true);
 	}
 }
