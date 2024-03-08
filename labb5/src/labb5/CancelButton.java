@@ -1,16 +1,39 @@
 package labb5;
 
+/**
+ * Cancel button
+ * @author Kasper Axelsson
+ * @author Zeb Muhlbach
+ */
 class CancelButton extends CalculatorButton {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 
+	 * @param text an instanece of String
+	 * @param situation an instance of Situation
+	 */
 	public CancelButton(String text, Situation situation) {
 		super(text, situation);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void transition() {
-		// TODO Auto-generated method stub
-		
+		switch (getSituation().state) {
+		case Input1:
+			
+			break;
+		case OpReady:
+			break;
+		case Input2:
+			break;
+		case HasResult:
+			break;
+		}
 	}
 
 }
