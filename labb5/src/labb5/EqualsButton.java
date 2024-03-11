@@ -23,29 +23,29 @@ public class EqualsButton extends CalculatorButton {
 
 	@Override
 	public void transition() {
-		switch (getSituation().state) {
+		switch (getSituation().getState()) {
 		case Input1:
 			break;
 		case OpReady:
 			break;
 		case Input2:
-			getSituation().state = State.HasResult;
-			getSituation().binaryOperator.setColor(Color.GRAY);
-			switch (getSituation().binaryOperator.toString()) {
+			getSituation().setState(State.HasResult);
+			getSituation().getBinaryOperator().setColor(Color.GRAY);
+			switch (getSituation().getBinaryOperator().toString()) {
 			case "+":
-				getSituation().display.setText(Integer.toString(getSituation().leftOperand + getDisplayInt()));
+				getSituation().getDisplay().setText(Integer.toString(getSituation().getLeftOperand() + getDisplayInt()));
 				break;
 			case "-":
-				getSituation().display.setText(Integer.toString(getSituation().leftOperand - getDisplayInt()));
+				getSituation().getDisplay().setText(Integer.toString(getSituation().getLeftOperand() - getDisplayInt()));
 				break;
 			case "*":
-				getSituation().display.setText(Integer.toString(getSituation().leftOperand * getDisplayInt()));
+				getSituation().getDisplay().setText(Integer.toString(getSituation().getLeftOperand() * getDisplayInt()));
 				break;
 			case "/":
 				if (getDisplayInt() == 0) {
 					System.out.println("Cannot divide by zero!");
 				} else {
-					getSituation().display.setText(Integer.toString(getSituation().leftOperand / getDisplayInt()));					
+					getSituation().getDisplay().setText(Integer.toString(getSituation().getLeftOperand() / getDisplayInt()));					
 				}
 				break;
 			}
@@ -56,7 +56,7 @@ public class EqualsButton extends CalculatorButton {
 	}
 
 	private int getDisplayInt() {
-		return Integer.parseInt(getSituation().display.getText());
+		return Integer.parseInt(getSituation().getBinaryOperator().getText());
 	}
 	
 }
