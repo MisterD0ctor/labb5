@@ -17,7 +17,7 @@ public class Situation {
 	 * Creates a situation with a display
 	 * @param display an instance of JLabel
 	 */
-	Situation(JLabel display) {
+	public Situation(JLabel display) {
 		this.display = display;
 	}
 }
