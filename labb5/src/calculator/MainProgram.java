@@ -1,4 +1,6 @@
-package labb5;
+package calculator;
+
+import calculator.gui.GUI;
 
 /**
  * Main program

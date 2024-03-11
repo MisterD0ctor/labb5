@@ -1,6 +1,9 @@
-package labb5;
+package calculator.buttons;
 
 import java.awt.Color;
+
+import calculator.state.Situation;
+import calculator.state.State;
 
 /**
  * Equals button

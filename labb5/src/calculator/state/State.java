@@ -1,4 +1,4 @@
-package labb5;
+package calculator.state;
 
 /**
  * State of a calculator

@@ -1,4 +1,4 @@
-package labb5;
+package calculator.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -14,6 +14,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
+
+import calculator.buttons.BinOpButton;
+import calculator.buttons.CalculatorButton;
+import calculator.buttons.CancelButton;
+import calculator.buttons.DigitButton;
+import calculator.buttons.EqualsButton;
+import calculator.state.Situation;
 
 /**
  * Calculator GUI

@@ -1,4 +1,4 @@
-package labb5;
+package calculator.buttons;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+
+import calculator.state.Situation;
 
 /**
  * Abstract calculator button
@@ -44,7 +46,7 @@ public abstract class CalculatorButton extends JButton {
 	}
 	
 	/**
-	 * 
+	 * Gets the situation
 	 * @return an instanece of Situation
 	 */
 	public Situation getSituation() {
@@ -74,7 +76,7 @@ public abstract class CalculatorButton extends JButton {
 		private CalculatorButton button;
 		
 		/**
-		 * 
+		 * Creates a button listener with a button
 		 * @param button An instance of CalculatorButton
 		 */
 		public ButtonListener(CalculatorButton button) {

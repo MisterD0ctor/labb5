@@ -1,6 +1,8 @@
-package labb5;
+package calculator.state;
 
 import javax.swing.JLabel;
+
+import calculator.buttons.BinOpButton;
 
 /**
  * The situation of a calculator
