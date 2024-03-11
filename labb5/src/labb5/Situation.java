@@ -22,7 +22,7 @@ public class Situation {
 	}
 	
 	/**
-	 * Gets state
+	 * Gets the state
 	 * @return an instance of State
 	 */
 	public State getState() {
@@ -30,7 +30,7 @@ public class Situation {
 	}
 	
 	/**
-	 * Sets state
+	 * Sets the state
 	 * @param state an instance of state
 	 */
 	public void setState(State state) {
@@ -38,7 +38,7 @@ public class Situation {
 	}
 	
 	/**
-	 * Gets display
+	 * Gets the display
 	 * @return an instance of JLabel
 	 */
 	public JLabel getDisplay() {
