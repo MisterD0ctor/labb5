@@ -22,23 +22,23 @@ public class CancelButton extends CalculatorButton {
 
 	@Override
 	public void transition() {
-		switch (getSituation().state) {
+		switch (getSituation().getState()) {
 		case Input1:
-			getSituation().display.setText("0");
+			getSituation().getDisplay().setText("0");
 			break;
 		case OpReady:
-			getSituation().state = State.Input1;
-			getSituation().display.setText("0");
-			getSituation().binaryOperator.setColor(Color.GRAY);
+			getSituation().setState(State.Input1);
+			getSituation().getDisplay().setText("0");
+			getSituation().getBinaryOperator().setColor(Color.GRAY);
 			break;
 		case Input2:
-			getSituation().state = State.Input1;
-			getSituation().display.setText("0");
-			getSituation().binaryOperator.setColor(Color.GRAY);
+			getSituation().setState(State.Input1);
+			getSituation().getDisplay().setText("0");
+			getSituation().getBinaryOperator().setColor(Color.GRAY);
 			break;
 		case HasResult:
-			getSituation().state = State.Input1;
-			getSituation().display.setText("0");
+			getSituation().setState(State.Input1);
+			getSituation().getDisplay().setText("0");
 			break;
 		}
 	}

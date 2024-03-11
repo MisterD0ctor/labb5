@@ -22,17 +22,17 @@ public class BinOpButton extends CalculatorButton {
 
 	@Override
 	public void transition() {
-		switch (getSituation().state) {
+		switch (getSituation().getState()) {
 		case Input1:
 			this.setColor(Color.RED);
-			getSituation().binaryOperator = this;
-			getSituation().state = State.OpReady;
+			getSituation().setBinaryOperator(this);
+			getSituation().setState(State.OpReady);
 			break;
 		case OpReady:
-			if (getSituation().binaryOperator != null) {
-				getSituation().binaryOperator.setColor(Color.GRAY);
+			if (getSituation().getBinaryOperator() != null) {
+				getSituation().getBinaryOperator().setColor(Color.GRAY);
 				this.setColor(Color.RED);
-				getSituation().binaryOperator = this;
+				getSituation().setBinaryOperator(this);
 			}
 			break;
 		case Input2:
@@ -40,8 +40,8 @@ public class BinOpButton extends CalculatorButton {
 			break;
 		case HasResult:
 			this.setColor(Color.RED);
-			getSituation().binaryOperator = this;
-			getSituation().state = State.OpReady;
+			getSituation().setBinaryOperator(this);
+			getSituation().setState(State.OpReady);
 			break;
 		}
 	}

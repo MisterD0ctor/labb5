@@ -56,7 +56,7 @@ public class EqualsButton extends CalculatorButton {
 	}
 
 	private int getDisplayInt() {
-		return Integer.parseInt(getSituation().getBinaryOperator().getText());
+		return Integer.parseInt(getSituation().getDisplay().getText());
 	}
 	
 }
