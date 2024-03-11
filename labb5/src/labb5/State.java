@@ -1,6 +1,7 @@
 package labb5;
 
 /**
+ * State of a calculator
  * @author Kasper Axelsson
  * @author Zeb Muhlbach
  */
