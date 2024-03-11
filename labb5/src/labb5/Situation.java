@@ -22,7 +22,7 @@ public class Situation {
 	}
 	
 	/**
-	 * Gets the 
+	 * Gets state
 	 * @return an instance of State
 	 */
 	public State getState() {
@@ -30,7 +30,15 @@ public class Situation {
 	}
 	
 	/**
-	 * Gets the display
+	 * Sets state
+	 * @param state an instance of state
+	 */
+	public void setState(State state) {
+		this.state = state;
+	}
+	
+	/**
+	 * Gets display
 	 * @return an instance of JLabel
 	 */
 	public JLabel getDisplay() {
@@ -53,6 +61,10 @@ public class Situation {
 		this.binaryOperator = binaryOperator;
 	}
 	
+	/**
+	 * Gets the left operand
+	 * @return an instance if int
+	 */
 	public int getLeftOperand() {
 		return leftOperand;
 	}
