@@ -69,6 +69,10 @@ public class Situation {
 		return leftOperand;
 	}
 	
+	/**
+	 * Sets left operand
+	 * @param leftOperand an instance of int
+	 */
 	public void setLeftOperand(int leftOperand) {
 		this.leftOperand = leftOperand;
 	}
