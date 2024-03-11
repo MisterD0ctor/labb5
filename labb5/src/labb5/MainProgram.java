@@ -8,7 +8,7 @@ package labb5;
 public class MainProgram {
 
 	/**
-	 * 
+	 * Starts the calculator
 	 * @param arg an instance of String[]
 	 */
 	public static void main (String arg[]) {

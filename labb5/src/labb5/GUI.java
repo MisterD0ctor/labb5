@@ -27,13 +27,25 @@ public class GUI extends JFrame {
 	private static final int DISPLAY_BORDER_WIDTH = 3;
 	private static final int HORIZONTAL_BUTTON_COUNT = 4;
 	private static final int VERTICAL_BUTTON_COUNT = 4;
+	/**
+	 * 
+	 */
 	private JPanel canvas;
+	/**
+	 * 
+	 */
 	private JLabel display;
+	/**
+	 * 
+	 */
 	private JPanel keypad;
+	/**
+	 * 
+	 */
 	private Situation situation;
 
 	/**
-	 * 
+	 * Creates a new calculator GUI
 	 */
 	public GUI() {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

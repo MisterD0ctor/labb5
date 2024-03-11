@@ -4,6 +4,21 @@ package labb5;
  * @author Kasper Axelsson
  * @author Zeb Muhlbach
  */
-enum State {
-	Input1, OpReady, Input2, HasResult
+public enum State {
+	/**
+	 * Input 1
+	 */
+	Input1, 
+	/**
+	 * Operator Ready
+	 */
+	OpReady, 
+	/**
+	 * Input 2
+	 */
+	Input2, 
+	/**
+	 * Has Resault
+	 */
+	HasResult
 }

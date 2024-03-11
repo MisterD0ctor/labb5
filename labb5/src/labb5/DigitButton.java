@@ -5,12 +5,12 @@ package labb5;
  * @author Kasper Axelsson
  * @author Zeb Muhlbach
  */
-class DigitButton extends CalculatorButton {
+public class DigitButton extends CalculatorButton {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 * Creates a digit button with text and a situation
 	 * @param text an instanece of String
 	 * @param situation an instance of Situation
 	 */

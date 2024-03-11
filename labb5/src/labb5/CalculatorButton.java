@@ -14,7 +14,7 @@ import javax.swing.JButton;
  * @author Kasper Axelsson
  * @author Zeb Muhlbach
  */
-abstract class CalculatorButton extends JButton {
+public abstract class CalculatorButton extends JButton {
 	
 	private static final long serialVersionUID = 1L;
 	/**
@@ -23,10 +23,13 @@ abstract class CalculatorButton extends JButton {
 	public static final int SIZE = 50;
 	private static final int FONT_SIZE = 20;
 	private static final int BORDER_WIDTH = 5;
+	/**
+	 * 
+	 */
 	private Situation situation;
 	
 	/**
-	 * 
+	 * Creates a button with text and a situation
 	 * @param text an instanece of String
 	 * @param situation an instance of Situation
 	 */

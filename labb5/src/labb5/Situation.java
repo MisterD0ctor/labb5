@@ -7,14 +7,14 @@ import javax.swing.JLabel;
  * @author Kasper Axelsson
  * @author Zeb Muhlbach
  */
-class Situation {
+public class Situation {
 	State state = State.Input1;
 	JLabel display;
 	BinOpButton binaryOperator;
 	int leftOperand;
 	
 	/**
-	 * 
+	 * Creates a situation with a display
 	 * @param display an instance of JLabel
 	 */
 	Situation(JLabel display) {

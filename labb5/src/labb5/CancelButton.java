@@ -7,12 +7,12 @@ import java.awt.Color;
  * @author Kasper Axelsson
  * @author Zeb Muhlbach
  */
-class CancelButton extends CalculatorButton {
+public class CancelButton extends CalculatorButton {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 * Creates an cancel button with text and a situation
 	 * @param text an instanece of String
 	 * @param situation an instance of Situation
 	 */

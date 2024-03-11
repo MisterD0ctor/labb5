@@ -7,12 +7,12 @@ import java.awt.Color;
  * @author Kasper Axelsson
  * @author Zeb Muhlbach
  */
-class BinOpButton extends CalculatorButton {
+public class BinOpButton extends CalculatorButton {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 * Creates an binary operator button with text and a situation
 	 * @param text An instanece of String
 	 * @param situation An instance of Situation
 	 */
